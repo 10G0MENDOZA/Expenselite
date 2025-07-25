@@ -1,0 +1,81 @@
+    /* Estilos para el texto flotante */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .tooltip .tooltip-text {
+        visibility: hidden;
+        width: 250px;
+     
+        color: #00909E;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        
+        position: absolute;
+        z-index: 1;
+        bottom: 100%; /* Posiciona el texto arriba */
+        left: 50%;
+        transform: translateX(-50%);
+        
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+.cierre-caja {
+   text-align: center;
+    margin-top: 20px;
+}
+
+
+.cierre-caja button {
+    padding: 12px 90px;
+    font-size: 1rem;
+    background-color: #DC3545; /* Rojo */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    display: inline-block;
+    position: relative;
+    top: 67px; /* Bajado aún más */
+}
+
+.cierre-caja button:hover {
+    background-color: #C82333; /* Rojo más oscuro en hover */
+    transform: translateY(-2px);
+}
+
+.cierre-caja button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(220, 53, 69, 0.7);
+}
+.formulario-agregar-saldo {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 150px; /* Ajusta según tus necesidades */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #4CAF50; /* Puedes cambiar el color de fondo */
+}
+
+.formulario-agregar-saldo h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+

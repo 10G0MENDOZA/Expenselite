@@ -1,0 +1,122 @@
+/* Estilos base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #292C35;
+    display: flex;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar (Menú lateral) */
+.sidebar {
+    width: 260px;
+    background: #00909E;
+    padding: 20px;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: #007B83;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Menú de navegación */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.menu i {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    background-color: #292C35;
+}
+
+/* Contenido principal */
+.content {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 30px;
+}
+
+header {
+    background-color: #f4f4f9;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #292C35;
+}
+
+/* Sección de estadísticas */
+.charts {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.chart {
+    flex: 1;
+    background: #00909E;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajuste de tamaños */
+@media (max-width: 768px) {
+    .charts {
+        flex-direction: column;
+    }
+}

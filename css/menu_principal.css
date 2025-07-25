@@ -1,0 +1,773 @@
+/* Reseteo y fuente base */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+/* Menú lateral */
+.menu {
+    width: 250px;
+    background-color: #00909E;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-header {
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #007B83;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.menu-header .logo {
+    margin: 0px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.menu-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-list li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+.menu-list li a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.menu-list li a:hover {
+    background-color: #292C35;
+}
+
+/* Contenido principal */
+.main-content {
+    flex-grow: 1;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.header {
+    background-color: #f4f4f9;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header i {
+    font-size: 24px;
+    cursor: pointer;
+    color: #00909E;
+}
+
+.content h2 {
+    color: #292C35;
+    margin-bottom: 20px;
+}
+
+.dashboard-summary {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.summary-box {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px; /* Fuente ajustada */
+    font-weight: bold;
+    height: 150px; /* Tamaño fijo para todas las cajas */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary-box h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px; /* Tamaño de título ajustado */
+}
+
+.summary-box p {
+    margin: 0;
+    font-size: 24px; /* Tamaño más adecuado para los números */
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+/* Estilo para los saldos */
+.saldo-gastado {
+    background-color: #FF5733; /* Color para el saldo gastado */
+}
+
+.saldo-disponible {
+    background-color: #00909E; /* Color para el saldo disponible */
+}
+
+.pendiente-enviar {
+    background-color: #FFB400;
+}
+
+.pendiente-aprobar {
+    background-color: #FF5733;
+}
+
+.pendiente-liquidar {
+    background-color: #28A745;
+}
+
+.saldo-actual {
+    background-color: #00909E;
+}
+
+/* Estilos para la sección de acciones */
+.actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.actions h3 {
+    font-size: 1.5rem;
+    color: #292C35;
+    margin-bottom: 15px;
+}
+
+.actions button {
+    padding: 12px 90px;
+    font-size: 1rem;
+    background-color: #00909E; /* Color principal */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    /* Mantenemos el botón centrado en la misma posición */
+    display: inline-block;
+}
+
+.actions button:hover {
+    background-color: #007c82; /* Color más oscuro para el hover */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.actions button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(0, 144, 158, 0.7); /* Sombra al hacer focus */
+}
+
+/* Estilos generales para el modal */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor del contenido del modal */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Encabezado del modal para la "X" */
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Botón de cierre ("X") */
+.close {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #f00;
+}
+
+/* Título del modal */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los elementos del formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #00909E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #007b89;
+}
+
+
+input[type="submit"]:active {
+    background-color: #005f5a; /* Color aún más oscuro cuando se presiona */
+}
+
+textarea:focus,
+input[type="text"]:focus,
+select:focus {
+    border-color: #00909E; /* Resalta el borde al enfocarse */
+    outline: none; /* Elimina el borde predeterminado del navegador */
+}
+
+
+/* Estilo para los labels */
+.form-group label {
+    font-size: 16px;
+    color: #292C35;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Estilo para los inputs */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #292C35;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al enfocar los inputs */
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="file"]:focus,
+.form-group textarea:focus {
+    border-color: #00909E;
+    outline: none;
+}
+
+/* Estilo para el textarea */
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Estilo para el botón de envío */
+input[type="submit"] {
+    background-color: #00909E;
+    color: #fff;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #007f7f;
+}
+
+/* Estilo para el botón de cerrar (X) */
+.close {
+    color: #292C35;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #00909E;
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Estilo para la sección de Compras Registradas */
+.compras-registradas {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+/* Título */
+.compras-registradas h3 {
+    font-size: 24px;
+    color: #292C35;
+    margin-bottom: 20px;
+}
+
+/* Estilo de la tabla */
+.compras-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Estilos para los encabezados */
+.compras-table th {
+    padding: 12px 15px;
+    text-align: left;
+    background-color: #292C35;
+    color: #fff;
+    font-size: 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Estilos para las celdas */
+.compras-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.compras-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.compras-table tr:hover {
+    background-color: #e9e9e9;
+}
+
+.compras-table td a {
+    color: #00909E;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.compras-table td a:hover {
+    text-decoration: underline;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #00909E;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background-color: #006F75;
+    transform: scale(1.1);
+}
+
+.pagination a:active {
+    background-color: #004F51;
+}
+
+.pagination a.prev::before {
+    content: "\00AB"; /* Símbolo de flecha doble hacia la izquierda */
+    margin-right: 8px;
+}
+
+.pagination a.next::after {
+    content: "\00BB"; /* Símbolo de flecha doble hacia la derecha */
+    margin-left: 8px;
+}
+  /* Estilos para centrar el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 10vh;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Estilos para el formulario dentro del modal */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.modal-content form input {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.modal-content form button {
+    padding: 12px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para mensajes dentro del modal */
+.message {
+    font-size: 16px;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
+.message-error {
+    color: red;
+}
+
+/* Estilos para el modal de confirmación */
+#compraModal .modal-content {
+    text-align: center;
+}
+
+#compraModal .modal-content h2 {
+    font-size: 18px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Estilo de la animación de cierre del modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media Queries para hacerlo responsive */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+    .modal-content form input {
+        font-size: 14px;
+    }
+    .modal-content form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+    }
+    .modal-content form input {
+        font-size: 12px;
+    }
+    .modal-content form button {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .close {
+        font-size: 24px;
+    }
+}
+/* Estilos para centrar el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 10vh;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Estilos para el formulario dentro del modal */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.modal-content form input {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.modal-content form button {
+    padding: 12px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para mensajes dentro del modal */
+.message {
+    font-size: 16px;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
+.message-error {
+    color: red;
+}
+
+/* Estilos para el modal de confirmación */
+#compraModal .modal-content {
+    text-align: center;
+}
+
+#compraModal .modal-content h2 {
+    font-size: 18px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Estilo de la animación de cierre del modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media Queries para hacerlo responsive */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+    .modal-content form input {
+        font-size: 14px;
+    }
+    .modal-content form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+    }
+    .modal-content form input {
+        font-size: 12px;
+    }
+    .modal-content form button {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .close {
+        font-size: 24px;
+    }
+}
+    /* Estilos para el texto flotante */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .tooltip .tooltip-text {
+        visibility: hidden;
+        width: 250px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        
+        position: absolute;
+        z-index: 1;
+        bottom: 100%; /* Posiciona el texto arriba */
+        left: 50%;
+        transform: translateX(-50%);
+        
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
